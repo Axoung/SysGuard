@@ -2,12 +2,21 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
   content: ['./src/renderer/**/*.{js,jsx,ts,tsx,ejs}'],
+  // purge: ['./**/*.css'], // 根据你的项目结构来修改这个路径
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
         sky: colors.sky,
         cyan: colors.cyan,
+      },
+      gridTemplateRows: {
+        // 添加一个 24 行的网格
+        24: 'repeat(24, minmax(0, 1fr))',
+      },
+      gridRow: {
+        // 添加一个 22 行跨度的类
+        'span-22': 'span 22 / span 22',
       },
     },
   },
@@ -37,6 +46,8 @@ module.exports = {
           'error-content': '#FFFFFF', // 错误色的文字颜色，使用白色以确保可读性
         },
       },
+      'aqua',
+      'dim',
       'light',
       'dark',
       'cupcake',

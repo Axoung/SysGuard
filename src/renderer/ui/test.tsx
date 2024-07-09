@@ -90,7 +90,7 @@ const Sidebar = () => {
           : 'w-14 transition-width duration-500 ease-in-out'
       } flex flex-col justify-between h-full`}
     >
-      <ul className="menu p-1 flex-grow">
+      <ul className="flex-grow p-1 menu">
         {items.map((item) => (
           <SidebarItem
             key={item.path}
@@ -103,7 +103,7 @@ const Sidebar = () => {
           />
         ))}
       </ul>
-      <ul className="menu p-1">
+      <ul className="p-1 menu">
         {bottomItems.map((item) => (
           <SidebarItem
             key={item.path}

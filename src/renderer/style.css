@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .draggable {
+    -webkit-app-region: drag;
+  }
+
+  .not-draggable {
+    -webkit-app-region: no-drag;
+  }
+
+  .bg-white-test {
+    background-color: #fff;
+  }
+}
+
+
+@layer components {
+  .draggable {
+    -webkit-app-region: drag;
+  }
+
+  .not-draggable {
+    -webkit-app-region: no-drag;
+  }
+}

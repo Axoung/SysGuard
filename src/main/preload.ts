@@ -21,6 +21,10 @@ const electronHandler = {
     receiveSystemInfo(func: (systemInfo: any) => void) {
       ipcRenderer.on('system-info', (_event, systemInfo) => func(systemInfo));
     },
+    minimize: () => ipcRenderer.send('minimize'),
+    maximize: () => ipcRenderer.send('maximize'),
+    close: () => ipcRenderer.send('close'),
+    toggleMaximize: () => ipcRenderer.send('toggle-maximize'),
   },
 };
 

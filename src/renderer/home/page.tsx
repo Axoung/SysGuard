@@ -33,7 +33,7 @@ const SUCCESS_THRESHOLD = 60;
 const WARNING_THRESHOLD = 80;
 
 const Stat: React.FC<StatProps> = ({ icon, title, value, desc, color }) => (
-  <div className=" stat w-1/4">
+  <div className="w-1/4  stat">
     <div className="stat-figure text-secondary">
       <FontAwesomeIcon
         icon={icon}
@@ -102,12 +102,11 @@ const Home = observer(() => {
   return (
     <div className="flex flex-col space-y-2">
       <DateTimeDisplay />
-      <div className="stats shadow flex">
+      <div className="flex shadow stats">
         {stats.map((stat, index) => (
           <Stat key={index} {...stat} />
         ))}
       </div>
-      {/* ...rest of the component */}
     </div>
   );
 });

@@ -84,6 +84,10 @@ const configuration: webpack.Configuration = {
         use: ['@svgr/webpack', 'file-loader'],
       },
       {
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
         test: /\.s?css$/,
         use: [
           'style-loader',
@@ -158,6 +162,7 @@ const configuration: webpack.Configuration = {
   //     },
   //   ],
   // },
+
   plugins: [
     ...(skipDLLs
       ? []

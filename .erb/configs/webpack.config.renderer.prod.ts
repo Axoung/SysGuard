@@ -60,6 +60,10 @@ const configuration: webpack.Configuration = {
         use: ['@svgr/webpack', 'file-loader'],
       },
       {
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
         test: /\.s?(a|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,

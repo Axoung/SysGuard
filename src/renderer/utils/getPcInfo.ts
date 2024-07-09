@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { SystemInfoType } from '../types/PcTyeps';
+import { SystemInfoType } from '../../types/PcTyeps';
 
 class SystemInfoStore {
   systemInfo: SystemInfoType = {

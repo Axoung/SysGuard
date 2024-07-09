@@ -26,10 +26,38 @@ class AppUpdater {
 
 let mainWindow: BrowserWindow | null = null;
 
+ipcMain.handle('toggle-maximize', (event) => {
+  const window = BrowserWindow.fromWebContents(event.sender);
+  if (window?.isMaximized()) {
+    window.unmaximize();
+  } else {
+    window?.maximize();
+  }
+});
+
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
   console.log(msgTemplate(arg));
   event.reply('ipc-example', msgTemplate('pong'));
+});
+
+ipcMain.on('minimize', (event) => {
+  const window = BrowserWindow.getFocusedWindow();
+  window?.minimize();
+});
+
+ipcMain.on('maximize', (event) => {
+  const window = BrowserWindow.getFocusedWindow();
+  if (window?.isMaximized()) {
+    window.unmaximize();
+  } else {
+    window?.maximize();
+  }
+});
+
+ipcMain.on('close', (event) => {
+  const window = BrowserWindow.getFocusedWindow();
+  window?.close();
 });
 
 if (process.env.NODE_ENV === 'production') {
@@ -74,6 +102,8 @@ const createWindow = async () => {
     show: false,
     width: 1024,
     height: 728,
+    frame: false,
+
     autoHideMenuBar: true,
     icon: getAssetPath('icon.png'),
     webPreferences: {
